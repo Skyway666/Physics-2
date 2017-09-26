@@ -15,9 +15,10 @@ public:
 	update_status PreUpdate();
 	update_status PostUpdate();
 	bool CleanUp();
+	float converter(float, bool); // 0 es de m->p y 1 es de p->m
 
 private:
 
 	bool debug;
-	b2World* hugo;
+	b2World* world;
 };

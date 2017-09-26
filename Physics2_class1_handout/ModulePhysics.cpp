@@ -24,13 +24,21 @@ bool ModulePhysics::Start()
 	// - Remember to destroy the world after using it
 	b2Vec2 gravity(0.0f, -9.8f);
 
-	hugo = new b2World(gravity);
+	world = new b2World(gravity);
 
 	// TODO 4: Create a a big static circle as "ground"
 	b2BodyDef ground_whato;
-	ground_whato.position.Set(10.0f, 10.0f);
-	b2Body *ground = hugo->CreateBody(&ground_whato);
+	ground_whato.type = b2_staticBody;
+	ground_whato.position.Set(5.0f, 4.5f);
 
+	b2CircleShape shape;
+	shape.m_radius = 2.5f;
+
+	b2FixtureDef fixture;
+	fixture.shape = &shape;
+	
+	b2Body *ground = world->CreateBody(&ground_whato);
+	ground->CreateFixture(&fixture);
 
 	return true;
 }
@@ -40,7 +48,7 @@ update_status ModulePhysics::PreUpdate()
 {
 	// TODO 3: Update the simulation ("step" the world)
 
-	hugo->Step(1.0f / 60.0f, 8, 3);
+	world->Step(1.0f / 60.0f, 8, 3);
 	return UPDATE_CONTINUE;
 }
 
@@ -58,7 +66,7 @@ update_status ModulePhysics::PostUpdate()
 
 	// Bonus code: this will iterate all objects in the world and draw the circles
 	// You need to provide your own macro to translate meters to pixels
-	/*
+
 	for(b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
 		for(b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext())
@@ -69,14 +77,14 @@ update_status ModulePhysics::PostUpdate()
 				{
 					b2CircleShape* shape = (b2CircleShape*)f->GetShape();
 					b2Vec2 pos = f->GetBody()->GetPosition();
-					App->renderer->DrawCircle(METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y), METERS_TO_PIXELS(shape->m_radius), 255, 255, 255);
+					App->renderer->DrawCircle(converter(pos.x,0), converter(pos.y,0), converter(shape->m_radius, 0), 255, 255, 255);
 				}
 				break;
 
 				// You will have to add more cases to draw boxes, edges, and polygons ...
 			}
 		}
-	}*/
+	}
 
 	return UPDATE_CONTINUE;
 }
@@ -88,6 +96,18 @@ bool ModulePhysics::CleanUp()
 	LOG("Destroying physics world");
 
 	// Delete the whole physics world!
-	delete hugo;
+	delete world;
 	return true;
+}
+
+float ModulePhysics::converter(float number, bool type)
+{
+	if (!type)
+	{
+		return number * 100;
+	}
+	else
+	{
+		return number/100;
+	}
 }
