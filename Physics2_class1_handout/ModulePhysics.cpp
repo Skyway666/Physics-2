@@ -22,23 +22,40 @@ bool ModulePhysics::Start()
 	// - You need to send it a default gravity
 	// - You need init the world in the constructor
 	// - Remember to destroy the world after using it
-	b2Vec2 gravity(0.0f, -9.8f);
+	b2Vec2 gravity(0.0f, 9.8f);
 
 	world = new b2World(gravity);
 
 	// TODO 4: Create a a big static circle as "ground"
+
+	//BIG FUCKING CIRCLE
 	b2BodyDef ground_whato;
 	ground_whato.type = b2_staticBody;
 	ground_whato.position.Set(5.0f, 4.5f);
 
 	b2CircleShape shape;
-	shape.m_radius = 2.5f;
+	shape.m_radius = 1.5f;
 
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
 	
 	b2Body *ground = world->CreateBody(&ground_whato);
 	ground->CreateFixture(&fixture);
+
+	//BIG FUCKING BOX
+	b2BodyDef ground_whato2;
+	ground_whato2.type = b2_staticBody;
+	ground_whato2.position.Set(5.0f, 6.25f);
+
+	b2PolygonShape shape2;
+	shape2.SetAsBox(4.0f, 0.25f);
+
+	
+	b2FixtureDef fixture2;
+	fixture2.shape = &shape2;
+
+	b2Body *ground2 = world->CreateBody(&ground_whato2);
+	ground2->CreateFixture(&fixture2);
 
 	return true;
 }
@@ -61,6 +78,21 @@ update_status ModulePhysics::PostUpdate()
 	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
 
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	{
+		b2BodyDef ground_whato;
+		ground_whato.type = b2_dynamicBody;
+		ground_whato.position.Set(converter(App->input->GetMouseX(), 1), converter(App->input->GetMouseY(), 1));
+
+		b2CircleShape shape;
+		shape.m_radius = converter(rand()%100+1, 1);
+
+		b2FixtureDef fixture;
+		fixture.shape = &shape;
+
+		b2Body *ground = world->CreateBody(&ground_whato);
+		ground->CreateFixture(&fixture);
+	}
 	if(!debug)
 		return UPDATE_CONTINUE;
 
@@ -78,6 +110,16 @@ update_status ModulePhysics::PostUpdate()
 					b2CircleShape* shape = (b2CircleShape*)f->GetShape();
 					b2Vec2 pos = f->GetBody()->GetPosition();
 					App->renderer->DrawCircle(converter(pos.x,0), converter(pos.y,0), converter(shape->m_radius, 0), 255, 255, 255);
+				}
+				break;
+				case b2Shape::e_polygon:
+				{
+				
+					b2PolygonShape* shape = (b2PolygonShape*)f->GetShape();
+					b2Vec2 pos = f->GetBody()->GetPosition();
+					SDL_Rect filler;
+					filler.x = converter(pos.x- shape->m_vertices->x, 0); filler.y = converter(pos.y - shape->m_vertices->y, 0); filler.w = converter (shape->m_vertices->x*2, 0); filler.h = converter(shape->m_vertices->y*2,0);
+					App->renderer->DrawQuad(filler, 255, 255, 255);
 				}
 				break;
 
