@@ -5,13 +5,6 @@
 #include "ModulePhysics.h"
 #include "math.h"
 
-#include "Box2D/Box2D/Box2D.h"
-
-#ifdef _DEBUG
-#pragma comment( lib, "Box2D/libx86/Debug/Box2D.lib" )
-#else
-#pragma comment( lib, "Box2D/libx86/Release/Box2D.lib" )
-#endif
 
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -62,35 +55,6 @@ update_status ModulePhysics::PreUpdate()
 // 
 update_status ModulePhysics::PostUpdate()
 {
-	// On space bar press, create a circle on mouse position
-	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
-	{
-		CreateCircle(PIXEL_TO_METERS(App->input->GetMouseX()), PIXEL_TO_METERS(App->input->GetMouseY()));
-	}
-
-	if(App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
-	{
-		// TODO 1: When pressing 2, create a box on the mouse position
-		CreateBox(PIXEL_TO_METERS(App->input->GetMouseX()), PIXEL_TO_METERS(App->input->GetMouseY()));
-		// TODO 2: To have the box behave normally, set fixture's density to 1.0f
-	}
-
-	if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
-	{
-		// TODO 3: Create a chain shape using those vertices
-		// remember to convert them from pixels to meters!
-		CreateH(PIXEL_TO_METERS(App->input->GetMouseX()), PIXEL_TO_METERS(App->input->GetMouseY()));
-
-	}
-
-	if (App->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN)
-	{
-		// TODO 3: Create a chain shape using those vertices
-		// remember to convert them from pixels to meters!
-
-		CreateRic(PIXEL_TO_METERS(App->input->GetMouseX()), PIXEL_TO_METERS(App->input->GetMouseY()));
-
-	}
 
 	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
@@ -200,6 +164,13 @@ void ModulePhysics::CreateBox(float x, float y)
 	fixture.density = 1.0;
 
 	b->CreateFixture(&fixture);
+
+	if (number_of_bodies < 100)
+	{
+		bodies[number_of_bodies].body = b;
+		++number_of_bodies;
+	}
+
 }
 
 void ModulePhysics::CreateCircle(float x, float y)
@@ -216,6 +187,11 @@ void ModulePhysics::CreateCircle(float x, float y)
 	fixture.shape = &shape;
 
 	b->CreateFixture(&fixture);
+	if(number_of_bodies < 100)
+	{ 
+	bodies[number_of_bodies].body = b;
+	++number_of_bodies;
+	}
 }
 
 void ModulePhysics::CreateH(float x, float y)
@@ -265,6 +241,12 @@ void ModulePhysics::CreateH(float x, float y)
 	fixture.density = 1.0f;
 
 	b->CreateFixture(&fixture);
+
+	if (number_of_bodies < 100)
+	{
+		bodies[number_of_bodies].body = b;
+		++number_of_bodies;
+	}
 }
 
 void ModulePhysics::CreateRic(float x, float y)
@@ -330,4 +312,10 @@ void ModulePhysics::CreateRic(float x, float y)
 	fixture.density = 1.0f;
 
 	b->CreateFixture(&fixture);
+
+	if (number_of_bodies < 100)
+	{
+		bodies[number_of_bodies].body = b;
+		++number_of_bodies;
+	}
 }

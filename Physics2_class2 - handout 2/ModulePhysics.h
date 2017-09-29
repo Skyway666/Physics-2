@@ -14,11 +14,31 @@
 class b2World;
 class b2Body;
 
+
+#include "Box2D/Box2D/Box2D.h"
+
+#ifdef _DEBUG
+#pragma comment( lib, "Box2D/libx86/Debug/Box2D.lib" )
+#else
+#pragma comment( lib, "Box2D/libx86/Release/Box2D.lib" )
+#endif
 // TODO 6: Create a small class that keeps a pointer to tghe b2Body
 // and has a method to request the position
 // then write the implementation in the .cpp
 // Then make your circle creation function to return a pointer to that class
+class BodyPos
+{
+public:
+	b2Body* body;
 
+	b2Vec2 GetPos()
+	{
+		b2Vec2 position = body->GetPosition();
+		position.x = METERS_TO_PIXELS(position.x);
+		position.y = METERS_TO_PIXELS(position.y);
+		return position;
+	}
+};
 
 class ModulePhysics : public Module
 {
@@ -31,6 +51,8 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 
+
+	
 	// TODO 4: Move body creation to 3 functions to create circles, rectangles and chains
 	void CreateCircle(float, float);
 
@@ -39,7 +61,12 @@ public:
 	void CreateH(float, float);
 
 	void CreateRic(float, float);
+
+	BodyPos bodies[1000];
+
+	int number_of_bodies = 0;
 private:
+
 
 	bool debug;
 	b2World* world;
