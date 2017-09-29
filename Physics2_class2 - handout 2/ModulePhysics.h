@@ -62,6 +62,8 @@ public:
 
 	void CreateRic(float, float);
 
+	b2Vec2 Position_for_drawing(b2Vec2 position, float radius);
+
 	BodyPos bodies[1000];
 
 	int number_of_bodies = 0;

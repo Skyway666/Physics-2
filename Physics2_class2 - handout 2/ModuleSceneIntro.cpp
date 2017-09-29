@@ -77,7 +77,8 @@ update_status ModuleSceneIntro::Update()
 	int counter = 0;
 	while (counter < App->physics->number_of_bodies)
 	{ 
-	App->renderer->Blit(circle, App->physics->bodies[counter].GetPos().x, App->physics->bodies[counter].GetPos().y);
+	b2Vec2 real_position = App->physics->Position_for_drawing(App->physics->bodies[counter].GetPos(), 25);
+	App->renderer->Blit(circle, real_position.x, real_position.y);
 	counter++;
 	}
 	return UPDATE_CONTINUE;

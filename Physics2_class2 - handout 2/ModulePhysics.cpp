@@ -319,3 +319,12 @@ void ModulePhysics::CreateRic(float x, float y)
 		++number_of_bodies;
 	}
 }
+
+b2Vec2 ModulePhysics::Position_for_drawing(b2Vec2 position, float radius)
+{
+	position.y = position.y - sin(45)*radius -4;
+
+	position.x = position.x - cos(45)*radius - 12;
+
+	return position;
+}
