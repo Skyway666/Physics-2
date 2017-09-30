@@ -158,7 +158,7 @@ void ModulePhysics::CreateBox(float x, float y)
 	b2Body* b = world->CreateBody(&body);
 
 	b2PolygonShape shape;
-	shape.SetAsBox(2.0f, 1.0f);
+	shape.SetAsBox(1.0F, 0.5f);
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
 	fixture.density = 1.0;
@@ -168,6 +168,7 @@ void ModulePhysics::CreateBox(float x, float y)
 	if (number_of_bodies < 100)
 	{
 		bodies[number_of_bodies].body = b;
+		bodies[number_of_bodies].shape = _polygon;
 		++number_of_bodies;
 	}
 
@@ -185,11 +186,13 @@ void ModulePhysics::CreateCircle(float x, float y)
 	shape.m_radius = PIXEL_TO_METERS(25);
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
+	fixture.density = 1.0;
 
 	b->CreateFixture(&fixture);
 	if(number_of_bodies < 100)
 	{ 
 	bodies[number_of_bodies].body = b;
+	bodies[number_of_bodies].shape = _circle;
 	++number_of_bodies;
 	}
 }
@@ -245,6 +248,7 @@ void ModulePhysics::CreateH(float x, float y)
 	if (number_of_bodies < 100)
 	{
 		bodies[number_of_bodies].body = b;
+		bodies[number_of_bodies].shape = _chain;
 		++number_of_bodies;
 	}
 }
@@ -316,6 +320,7 @@ void ModulePhysics::CreateRic(float x, float y)
 	if (number_of_bodies < 100)
 	{
 		bodies[number_of_bodies].body = b;
+		bodies[number_of_bodies].shape = _chain;
 		++number_of_bodies;
 	}
 }

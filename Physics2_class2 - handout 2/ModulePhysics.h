@@ -26,6 +26,12 @@ class b2Body;
 // and has a method to request the position
 // then write the implementation in the .cpp
 // Then make your circle creation function to return a pointer to that class
+enum Type
+{
+	_polygon,
+	_circle,
+	_chain
+};
 class BodyPos
 {
 public:
@@ -37,6 +43,13 @@ public:
 		position.x = METERS_TO_PIXELS(position.x);
 		position.y = METERS_TO_PIXELS(position.y);
 		return position;
+	}
+
+	Type shape;
+
+	float GetRotation()
+	{
+		return RADTODEG*body->GetAngle();
 	}
 };
 

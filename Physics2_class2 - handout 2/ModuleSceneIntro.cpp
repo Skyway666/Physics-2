@@ -56,7 +56,7 @@ update_status ModuleSceneIntro::Update()
 		// TODO 2: To have the box behave normally, set fixture's density to 1.0f
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_9) == KEY_DOWN)
 	{
 		// TODO 3: Create a chain shape using those vertices
 		// remember to convert them from pixels to meters!
@@ -64,7 +64,7 @@ update_status ModuleSceneIntro::Update()
 
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		// TODO 3: Create a chain shape using those vertices
 		// remember to convert them from pixels to meters!
@@ -77,9 +77,24 @@ update_status ModuleSceneIntro::Update()
 	int counter = 0;
 	while (counter < App->physics->number_of_bodies)
 	{ 
-	b2Vec2 real_position = App->physics->Position_for_drawing(App->physics->bodies[counter].GetPos(), 25);
-	App->renderer->Blit(circle, real_position.x, real_position.y);
-	counter++;
+		if (App->physics->bodies[counter].shape == _circle)
+		{ 
+			b2Vec2 real_position = App->physics->Position_for_drawing(App->physics->bodies[counter].GetPos(), 25);
+			App->renderer->Blit(circle, real_position.x, real_position.y,nullptr,0, App->physics->bodies[counter].GetRotation());
+			counter++;
+		}
+		else if(App->physics->bodies[counter].shape == _polygon)
+		{
+			b2Vec2 real_position = App->physics->Position_for_drawing(App->physics->bodies[counter].GetPos(), 25);
+			App->renderer->Blit(box, real_position.x-25, real_position.y, nullptr, 0, App->physics->bodies[counter].GetRotation());
+			counter++;
+		}
+		else
+		{
+			b2Vec2 real_position = App->physics->Position_for_drawing(App->physics->bodies[counter].GetPos(), 25);
+			App->renderer->Blit(rick, real_position.x +25, real_position.y+25);
+			counter++;
+		}
 	}
 	return UPDATE_CONTINUE;
 }
