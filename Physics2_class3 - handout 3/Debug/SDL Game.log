@@ -1,9 +1,9 @@
 ﻿  ModulePhysics.cpp
 c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(111): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(112): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(128): warning C4018: '<': signed/unsigned mismatch
-c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(311): warning C4244: 'return': conversion from 'float32' to 'int', possible loss of data
+c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(113): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(114): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(130): warning C4018: '<': signed/unsigned mismatch
+c:\users\lucasgm\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(313): warning C4244: 'return': conversion from 'float32' to 'int', possible loss of data
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\cmath(131): warning C4577: 'noexcept' used with no exception handling mode specified; termination on exception is not guaranteed. Specify /EHsc
   SDL Game.vcxproj -> C:\Users\lucasgm\Documents\GitHub\Physics-2\Physics2_class3 - handout 3\Debug\2D Physics - class 3.exe
   SDL Game.vcxproj -> C:\Users\lucasgm\Documents\GitHub\Physics-2\Physics2_class3 - handout 3\Debug\2D Physics - class 3.pdb (Full PDB)
