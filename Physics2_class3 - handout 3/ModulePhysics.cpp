@@ -280,27 +280,37 @@ int PhysBody::RayCast(int x1, int y1, int x2, int y2, float& normal_x, float& no
 	// TODO 2: Write code to test a ray cast between both points provided. If not hit return -1
 	// if hit, fill normal_x and normal_y and return the distance between x1,y1 and it's colliding point
 
-	int ret = -1;
+
 	b2Fixture* iterator;
 	iterator = body->GetFixtureList();
 	b2RayCastInput raycasti;
 	b2RayCastOutput raycasto;
-	raycasti.p1 = b2Vec2(x1, y1);
-	raycasti.p1 = b2Vec2(x2, y2);
+	raycasti.p1 = b2Vec2(PIXEL_TO_METERS(x1), PIXEL_TO_METERS(y1));
+	raycasti.p2 = b2Vec2(PIXEL_TO_METERS(x2), PIXEL_TO_METERS(y2));
+	raycasti.maxFraction = 3;
+	bool spoted = false;
 
-	while (iterator != nullptr)
+	while (iterator != nullptr && !spoted)
 	{
-		ret = iterator->RayCast(&raycasto, raycasti,0);
+		spoted = iterator->RayCast(&raycasto, raycasti,0);
 		iterator = iterator->GetNext();
 	}
 
-	ret = raycasto.fraction;
+	if (!spoted)
+		return -1;
+	else
+	{ 
 
 	normal_x = raycasto.normal.x;
 	normal_y = raycasto.normal.y;
 
+	b2Vec2 distance_p1_cp((raycasti.p2.x - raycasti.p1.x)*raycasto.fraction, (raycasti.p2.y - raycasti.p1.y)*raycasto.fraction);
 
-	return ret;
+	
+
+	return distance_p1_cp.Length();
+   }
+	
 }
 
 void ModulePhysics::BeginContact(b2Contact* contact)
