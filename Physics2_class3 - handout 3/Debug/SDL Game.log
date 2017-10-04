@@ -1,0 +1,114 @@
+﻿  ModuleWindow.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  ModuleTextures.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  ModuleSceneIntro.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(123): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(123): error C2227: el operando izquierdo de '->GetPosition' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(124): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(124): error C2227: el operando izquierdo de '->Contains' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(125): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(125): error C2227: el operando izquierdo de '->GetRotation' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(134): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(134): error C2227: el operando izquierdo de '->GetPosition' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(135): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(135): error C2227: el operando izquierdo de '->GetRotation' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(138): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(138): error C2227: el operando izquierdo de '->RayCast' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(150): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(150): error C2227: el operando izquierdo de '->GetPosition' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(151): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(151): error C2227: el operando izquierdo de '->GetRotation' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(158): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(160): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(162): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulesceneintro.cpp(165): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  ModuleRender.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  ModulePlayer.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  ModulePhysics.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(35): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(86): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(89): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(89): error C2227: el operando izquierdo de '->body' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(90): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(90): error C2227: el operando izquierdo de '->width' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(90): error C2227: el operando izquierdo de '->height' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(111): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(112): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(112): error C2227: el operando izquierdo de '->body' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(113): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(113): error C2227: el operando izquierdo de '->width' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(114): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(114): error C2227: el operando izquierdo de '->height' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(130): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(145): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(146): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(146): error C2227: el operando izquierdo de '->body' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(147): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(147): error C2227: el operando izquierdo de '->width' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(147): error C2227: el operando izquierdo de '->height' debe señalar al tipo class/struct/union/generic
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(248): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(249): error C2270: 'GetPosition': modificadores no permitidos en funciones que no sean miembro
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(250): error C2065: 'body': identificador no declarado
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(250): error C2227: el operando izquierdo de '->GetPosition' debe señalar al tipo class/struct/union/generic
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(250): note: el tipo es 'unknown-type'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(251): error C2065: 'width': identificador no declarado
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(252): error C2065: 'height': identificador no declarado
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(255): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(256): error C2270: 'GetRotation': modificadores no permitidos en funciones que no sean miembro
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(257): error C2065: 'body': identificador no declarado
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(257): error C2227: el operando izquierdo de '->GetAngle' debe señalar al tipo class/struct/union/generic
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(257): note: el tipo es 'unknown-type'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(260): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(261): error C2270: 'Contains': modificadores no permitidos en funciones que no sean miembro
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(268): error C2065: 'body': identificador no declarado
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(268): error C2227: el operando izquierdo de '->GetFixtureList' debe señalar al tipo class/struct/union/generic
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(268): note: el tipo es 'unknown-type'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(280): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.h(16): note: vea la declaración de 'PhysBody'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(281): error C2270: 'RayCast': modificadores no permitidos en funciones que no sean miembro
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(287): error C2065: 'body': identificador no declarado
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(287): error C2227: el operando izquierdo de '->GetFixtureList' debe señalar al tipo class/struct/union/generic
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(287): note: el tipo es 'unknown-type'
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\modulephysics.cpp(313): warning C4244: 'return': conversión de 'float32' a 'int'; posible pérdida de datos
+  ModuleInput.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  ModuleAudio.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  Application.cpp
+c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(77): error C2027: uso del tipo 'PhysBody' sin definir
+  c:\users\gaming\documents\github\physics-2\physics2_class3 - handout 3\module.h(6): note: vea la declaración de 'PhysBody'
+  Generando código...
