@@ -88,6 +88,7 @@ PhysBody* ModulePhysics::CreateCircle(int x, int y, int radius)
 	b->SetUserData(&pbody);
 	pbody->body = b;
 	pbody->width = pbody->height = radius;
+	pbody->module = App->scene_intro;
 
 	return pbody;
 }
@@ -318,9 +319,23 @@ int PhysBody::RayCast(int x1, int y1, int x2, int y2, float& normal_x, float& no
 void ModulePhysics::BeginContact(b2Contact* contact)
 {
 	LOG("Collision!");
-	void* PhysBodyA = contact->GetFixtureA()->GetBody()->GetUserData();
+	PhysBody* PhysBodyA = (PhysBody*)contact->GetFixtureA()->GetBody()->GetUserData();
 
-	void* PhysBodyB = contact->GetFixtureB()->GetBody()->GetUserData();
+	PhysBody* PhysBodyB = (PhysBody*)contact->GetFixtureB()->GetBody()->GetUserData();
+
+	if (PhysBodyA->module != nullptr)
+	{
+		//PhysBodyA->module->OnCollision(PhysBodyA, PhysBodyB);
+	}
+
+	if (PhysBodyB->module != nullptr)
+	{
+		//PhysBodyB->module->OnCollision(PhysBodyB, PhysBodyB);
+	}
+	
+
+	//LLamar al "OnCollision" de los módulos que contengan las diferentes strucs
+	
 }
 // TODO 3
 

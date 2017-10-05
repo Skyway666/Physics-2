@@ -27,6 +27,7 @@ public:
 public:
 	int width, height;
 	b2Body* body;
+	ModuleSceneIntro* module = nullptr;
 	// TODO 6: Add a pointer to a module that might want to listen to a collision from this body
 };
 
