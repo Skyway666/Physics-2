@@ -1,5 +1,6 @@
 #pragma once
 #include "Module.h"
+#include "ModuleSceneIntro.h"
 #include "Globals.h"
 #include "Box2D/Box2D/Box2D.h"
 

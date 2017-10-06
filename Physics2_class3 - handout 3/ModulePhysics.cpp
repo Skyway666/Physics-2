@@ -48,6 +48,11 @@ bool ModulePhysics::Start()
 	fixture.shape = &shape;
 	b->CreateFixture(&fixture);
 
+	PhysBody* physbody_s = new PhysBody;	
+	physbody_s->body = b;
+	physbody_s->module = App->scene_intro;
+	b->SetUserData(physbody_s);
+
 	return true;
 }
 
@@ -85,11 +90,11 @@ PhysBody* ModulePhysics::CreateCircle(int x, int y, int radius)
 	// TODO 4: add a pointer to PhysBody as UserData to the body
 	PhysBody* pbody = new PhysBody();
 
-	b->SetUserData(&pbody);
+	
 	pbody->body = b;
 	pbody->width = pbody->height = radius;
 	pbody->module = App->scene_intro;
-
+    b->SetUserData(pbody);
 	return pbody;
 }
 
@@ -113,6 +118,8 @@ PhysBody* ModulePhysics::CreateRectangle(int x, int y, int width, int height)
 	pbody->body = b;
 	pbody->width = width * 0.5f;
 	pbody->height = height * 0.5f;
+	pbody->module = App->scene_intro;
+	b->SetUserData(pbody);
 
 	return pbody;
 }
@@ -146,6 +153,7 @@ PhysBody* ModulePhysics::CreateChain(int x, int y, int* points, int size)
 	PhysBody* pbody = new PhysBody();
 	pbody->body = b;
 	pbody->width = pbody->height = 0;
+	b->SetUserData(pbody);
 
 	return pbody;
 }
@@ -318,24 +326,21 @@ int PhysBody::RayCast(int x1, int y1, int x2, int y2, float& normal_x, float& no
 
 void ModulePhysics::BeginContact(b2Contact* contact)
 {
-	LOG("Collision!");
 	PhysBody* PhysBodyA = (PhysBody*)contact->GetFixtureA()->GetBody()->GetUserData();
 
 	PhysBody* PhysBodyB = (PhysBody*)contact->GetFixtureB()->GetBody()->GetUserData();
 
+    if (PhysBodyB->module != nullptr)
+	{
+		PhysBodyB->module->OnCollision(PhysBodyB, PhysBodyA);
+	}
+
+
 	if (PhysBodyA->module != nullptr)
 	{
-		//PhysBodyA->module->OnCollision(PhysBodyA, PhysBodyB);
+		PhysBodyA->module->OnCollision(PhysBodyA, PhysBodyB);
 	}
-
-	if (PhysBodyB->module != nullptr)
-	{
-		//PhysBodyB->module->OnCollision(PhysBodyB, PhysBodyB);
-	}
-	
-
 	//LLamar al "OnCollision" de los módulos que contengan las diferentes strucs
-	
 }
 // TODO 3
 
