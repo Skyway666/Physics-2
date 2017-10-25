@@ -1,0 +1,5 @@
+﻿  ModuleCamera3D.cpp
+c:\users\lucasgm\desktop\physics3d_class1 - handout\modulecamera3d.cpp(88): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\lucasgm\desktop\physics3d_class1 - handout\modulecamera3d.cpp(89): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  3D Physics.vcxproj -> C:\Users\lucasgm\Desktop\Physics3D_class1 - handout\Debug\3D Physics - class1 Handout.exe
+  3D Physics.vcxproj -> C:\Users\lucasgm\Desktop\Physics3D_class1 - handout\Debug\3D Physics - class1 Handout.pdb (Partial PDB)
