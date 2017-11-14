@@ -34,6 +34,9 @@ ModulePhysics3D::~ModulePhysics3D()
 	delete collision_dispatcher;
 	delete broadphase;
 	delete solver;
+	delete body;
+	delete myMotionState;
+	delete colShape;
 	// TODO 2: and destroy them!
 
 }
@@ -56,6 +59,11 @@ bool ModulePhysics3D::Start()
 	{
 		// TODO 5: Create a big rectangle as ground
 		// Big rectangle as ground
+		colShape = new btBoxShape(btVector3(100.0f, 1.0f, 100.0f));
+		myMotionState = new btDefaultMotionState();
+		btRigidBody::btRigidBodyConstructionInfo rbInfo(0.0f, myMotionState, colShape);
+		body = new btRigidBody(rbInfo);
+		world->addRigidBody(body);
 	}
 
 	return true;
@@ -78,11 +86,33 @@ update_status ModulePhysics3D::Update(float dt)
 
 	if(debug == true)
 	{
-		//world->debugDrawWorld();
+		world->debugDrawWorld();
 		
 		if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 		{
 			// TODO 6: Create a Solid Sphere when pressing 1 on camera position
+
+			btCollisionShape* colShape = new btSphereShape(1);
+
+			//vec4 first(1, 0, 0, 0);
+			//vec4 second(0, 1, 0, 0);
+			//vec4 third(0, 0, 1, 0);
+			//vec4 forth(0, 0, 0, 1);
+
+			//mat4x4 trans(first, second, third, forth);
+
+			//trans.translate(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z);
+			//btTransform startTransform;
+
+			//startTransform.setFromOpenGLMatrix(&trans);
+
+			//btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+
+			btDefaultMotionState* myMotionState = new btDefaultMotionState();
+
+			btRigidBody::btRigidBodyConstructionInfo rbInfo(0.0f, myMotionState, colShape);
+			btRigidBody* body = new btRigidBody(rbInfo);
+			world->addRigidBody(body); //Memory leak??
 		}
 	}
 

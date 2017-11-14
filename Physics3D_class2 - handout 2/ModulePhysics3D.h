@@ -43,6 +43,10 @@ private:
 	btDbvtBroadphase* broadphase;
 	btSequentialImpulseConstraintSolver* solver;
 	btDiscreteDynamicsWorld* world;
+
+	btRigidBody* body;
+	btDefaultMotionState* myMotionState;
+	btCollisionShape* colShape;
 };
 
 
