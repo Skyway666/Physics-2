@@ -94,21 +94,19 @@ update_status ModulePhysics3D::Update(float dt)
 
 			btCollisionShape* colShape = new btSphereShape(1);
 
-			//vec4 first(1, 0, 0, 0);
-			//vec4 second(0, 1, 0, 0);
-			//vec4 third(0, 0, 1, 0);
-			//vec4 forth(0, 0, 0, 1);
+			vec4 first(1, 0, 0, 0);
+			vec4 second(0, 1, 0, 0);
+			vec4 third(0, 0, 1, 0);
+			vec4 forth(0, 0, 0, 1);
 
-			//mat4x4 trans(first, second, third, forth);
+			mat4x4 trans(first, second, third, forth);
 
-			//trans.translate(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z);
-			//btTransform startTransform;
+			trans.translate(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z);
+			btTransform startTransform;
 
-			//startTransform.setFromOpenGLMatrix(&trans);
+			startTransform.setFromOpenGLMatrix(&trans);
 
-			//btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
-
-			btDefaultMotionState* myMotionState = new btDefaultMotionState();
+			btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
 
 			btRigidBody::btRigidBodyConstructionInfo rbInfo(0.0f, myMotionState, colShape);
 			btRigidBody* body = new btRigidBody(rbInfo);
