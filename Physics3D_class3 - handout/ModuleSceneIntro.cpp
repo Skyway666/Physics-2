@@ -52,8 +52,18 @@ update_status ModuleSceneIntro::Update(float dt)
 
 	// TODO 4: update the transform of the shape to meet the
 	//physics one
-	float* flor = nullptr;
-	body->GetTransform(flor);
+
+	float flor;
+	body->GetTransform(&flor);
+	float* pointer_flor = &flor;
+	mat4x4 new_trans;
+	
+	for (int i = 0; i < 15; i++)
+	{
+		new_trans[i] = pointer_flor[i];
+	}
+	s.transform = new_trans;
+
 	//s.SetPos(, , );
 
 

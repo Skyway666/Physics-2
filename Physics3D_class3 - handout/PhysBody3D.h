@@ -9,7 +9,7 @@ class Module;
 struct PhysBody3D
 {
 public:
-	PhysBody3D(btRigidBody* body);
+	PhysBody3D(btRigidBody* _body);
 	~PhysBody3D();
 
 	void GetTransform(float* matrix) const;
