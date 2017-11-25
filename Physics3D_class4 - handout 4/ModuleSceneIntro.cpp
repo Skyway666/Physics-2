@@ -31,7 +31,7 @@ bool ModuleSceneIntro::Start()
 
 	for (int i = 1; i < MAX_SNAKE; i++)
 	{
-		s.SetPos(i*3, 0, 0);
+		s.SetPos(i*10, 0, 0);
 		pb_snake[i] = App->physics->AddBody(s);
 		s_snake[i] = s;
 		vec3 anchorA, anchorB;
@@ -39,10 +39,10 @@ bool ModuleSceneIntro::Start()
 		//anchorA = pb_snake[i]->GetPos();
 		//anchorB = pb_snake[i - 1]->GetPos();
 
-		anchorA.Set(i, 0, 0);
-		anchorB.Set(-i, 0, 0);
+		anchorA.Set(2, 0, 0);
+		anchorB.Set(-2, 0, 0);
 
-		App->physics->AddConstraint(*pb_snake[i-1], *pb_snake[i], anchorA, anchorA);
+		App->physics->AddConstraint(*pb_snake[i-1], *pb_snake[i], anchorA, anchorB);
 	}
 	// TODO 4: Chain few N spheres together to form a a bike's sphere
 	// Be sure to put the right axis
