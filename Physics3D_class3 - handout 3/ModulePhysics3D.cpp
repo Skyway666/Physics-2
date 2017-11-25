@@ -99,6 +99,21 @@ update_status ModulePhysics3D::Update(float dt)
 		}
 	}
 
+	// TODO 4: update the transform of the shape to meet the
+	//physics one
+	for(p2List_item<PhysBody3D*>* iterator = bodies.getFirst(); iterator != nullptr; iterator = iterator->next)
+	{ 
+		float flor[16];
+		iterator->data->GetTransform(flor);
+		mat4x4 new_trans;
+	
+		for (int i = 0; i < 15; i++)
+		{
+			new_trans.M[i] = flor[i];
+		}
+		iterator->data->sphere->transform = new_trans;
+		iterator->data->sphere->Render();
+	}
 	return UPDATE_CONTINUE;
 }
 
@@ -142,7 +157,7 @@ bool ModulePhysics3D::CleanUp()
 }
 
 // ---------------------------------------------------------
-PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
+PhysBody3D* ModulePhysics3D::AddBody(Sphere& sphere, float mass)
 {
 	btCollisionShape* colShape = new btSphereShape(sphere.radius);
 	// TODO 1: Store all collision shapes
@@ -160,7 +175,8 @@ PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
 
 	btRigidBody* body = new btRigidBody(rbInfo);
 	// TODO 1: Store all bodies
-	PhysBody3D* pbody = new PhysBody3D(body);
+	Sphere* new_sphere = new Sphere(sphere.radius);
+	PhysBody3D* pbody = new PhysBody3D(body,new_sphere);
 	body->setUserPointer(pbody);
 
 	bodies.add(pbody);

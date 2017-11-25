@@ -19,7 +19,5 @@ public:
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 public:
-	PhysBody3D* b;
-	Sphere s;
-	PhysBody3D* body;
+
 };
