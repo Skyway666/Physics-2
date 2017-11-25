@@ -48,4 +48,9 @@ public:
 	}
 
 	// TODO 5: Define an OnCollision method
+	virtual void OnCollision(PhysBody3D* body1, PhysBody3D* body2)
+	{
+
+	}
+
 };

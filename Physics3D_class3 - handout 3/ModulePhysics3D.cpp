@@ -78,6 +78,38 @@ update_status ModulePhysics3D::PreUpdate(float dt)
 	// - If we have contacts, get both PhysBody3D from userpointers
 	// - If iterate all contact listeners and call them
 
+	int numManifolds = world->getDispatcher()->getNumManifolds();
+	for (int i = 0; i<numManifolds; i++)
+	{
+		btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(i);
+		btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
+		btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+
+		int numContacts = contactManifold->getNumContacts();
+		if (numContacts > 0)
+		{
+			PhysBody3D* pbodyA = (PhysBody3D*)obA->getUserPointer();
+			PhysBody3D* pbodyB = (PhysBody3D*)obB->getUserPointer();
+
+			if (pbodyA && pbodyB)
+			{
+				p2List_item<Module*>* item = pbodyA->collision_listeners.getFirst();
+				while (item)
+				{
+					item->data->OnCollision(pbodyA, pbodyB);
+					item = item->next;
+				}
+
+				item = pbodyB->collision_listeners.getFirst();
+				while (item)
+				{
+					item->data->OnCollision(pbodyB, pbodyA);
+					item = item->next;
+				}
+			}
+		}
+	}
+
 	return UPDATE_CONTINUE;
 }
 
@@ -95,7 +127,9 @@ update_status ModulePhysics3D::Update(float dt)
 		{
 			Sphere s(1);
 			s.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z);
-			AddBody(s);
+			PhysBody3D*body = AddBody(s);
+			// TODO 5: Add this module to the list of collision listeners
+			body->collision_listeners.add(App->scene_intro);
 		}
 	}
 

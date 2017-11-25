@@ -20,13 +20,8 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	// TODO 3: create a sphere in the world with a primitive
-	// and create a physics body for it. Remember to render it in Update()
 
-
-
-
-	// TODO 5: Add this module to the list of collision listeners
+	
 
 	return ret;
 }
@@ -50,7 +45,13 @@ update_status ModuleSceneIntro::Update(float dt)
 	return UPDATE_CONTINUE;
 }
 
-// TODO 5: ... and define it for the ModuleScenario. Set the ball
+// TODO 5: Define OnCollision for the ModuleScenario. Set the ball
 // in red if it happens using is color property
+void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
+{
+	body1->sphere->color = { 255,0,0,255 };
+	body2->sphere->color = { 255,0,0,255 };
+}
+
 
 
