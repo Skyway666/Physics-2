@@ -21,7 +21,29 @@ bool ModuleSceneIntro::Start()
 	App->camera->LookAt(vec3(0, 0, 0));
 
 	// TODO 2: Chain few N spheres together to form a snake
+	
+	
+    Sphere s(1);
 
+	s.SetPos(0, 0, 0);
+	pb_snake[0] = App->physics->AddBody(s);
+	s_snake[0] = s;
+
+	for (int i = 1; i < MAX_SNAKE; i++)
+	{
+		s.SetPos(i*3, 0, 0);
+		pb_snake[i] = App->physics->AddBody(s);
+		s_snake[i] = s;
+		vec3 anchorA, anchorB;
+
+		//anchorA = pb_snake[i]->GetPos();
+		//anchorB = pb_snake[i - 1]->GetPos();
+
+		anchorA.Set(i, 0, 0);
+		anchorB.Set(-i, 0, 0);
+
+		App->physics->AddConstraint(*pb_snake[i-1], *pb_snake[i], anchorA, anchorA);
+	}
 	// TODO 4: Chain few N spheres together to form a a bike's sphere
 	// Be sure to put the right axis
 
@@ -43,18 +65,17 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	/* Uncomment when ready
 	for(int i = 0; i < MAX_SNAKE; ++i)
 	{
 		pb_snake[i]->GetTransform(&(s_snake[i].transform));
 		s_snake[i].Render();
 	}
 
-	for(int i = 0; i < MAX_SNAKE; ++i)
-	{
-		pb_snake2[i]->GetTransform(&(s_snake2[i].transform));
-		s_snake2[i].Render();
-	}*/
+	//for(int i = 0; i < MAX_SNAKE; ++i)
+	//{
+	//	pb_snake2[i]->GetTransform(&(s_snake2[i].transform));
+	//	s_snake2[i].Render();
+	//}
 
 	return UPDATE_CONTINUE;
 }
